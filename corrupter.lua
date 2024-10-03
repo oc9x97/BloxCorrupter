@@ -6,7 +6,8 @@ local LocalPlayer = Players.LocalPlayer
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 
 -- Config is here
-local logging = false -- controls if you want to log things to the console
+local speed = 0.001 -- put a number to control how delay goes (ONLY EFFECTS GAME CORRUPTION)
+local logging = true -- controls if you want to log things to the console
 local changechar = false -- if you want to change your character, leave off to avoid bugs
 local mesh = "rbxassetid://5143242882" -- change this to the mesh you want any mesh to become
 -- Config ends here
@@ -72,7 +73,7 @@ end
 local function corruptGame()
     while true do
         for _, obj in ipairs(workspace:GetDescendants()) do
-            wait(0.01)
+            wait(speed)
             local action = math.random(1, 10)
             
             if obj:IsA("BasePart") then
